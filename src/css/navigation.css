@@ -1,0 +1,27 @@
+.header-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.navigator ul {
+    display: flex;
+    gap: 50px;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.navigator ul li a {
+    text-decoration: none;
+    color: var(--dark-main);
+    transition: color 0.3s;
+}
+
+.navigator ul li a:hover {
+    color: var(--dark-hover);
+}
+
+#add-teacher-btn {
+    font-size: 1.3rem;
+}

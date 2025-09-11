@@ -3,3 +3,66 @@
 
 /* Reset and normalize */
 @import url('./normalize.css');
+
+@import url('./header.css');
+
+@import url('./navigation.css');
+
+@import url('./teachers.css');
+
+@import url('./table.css');
+
+@import url('./favorites.css');
+
+@import url('./footer.css');
+
+:root {
+  --main: #F89582;
+  --dark-main: #FC564F;
+  --dark-hover: #D04130;
+  --text-gray: #3e3e3e;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  color: grey;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  width: 75%;
+  padding: 2.5rem 6rem;
+  box-shadow: 0 0 25px rgb(212, 209, 209);
+}
+
+.basic-btn {
+  color: var(--dark-main);
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  background-color: white;
+  border: 1px solid var(--dark-main);
+  transition: 0.5s all;
+}
+
+.basic-btn:hover {
+  color: white;
+  background-color: var(--dark-main);
+}
+
+hr {
+  width: 30rem;
+  border: 1px solid var(--text-gray);
+  margin: 0.8rem auto;
+}
+
+h2 {
+  margin: 1.5rem 0 3rem 0;
+  color: var(--text-gray);
+  font-size: 2rem;
+  font-weight: bolder;
+}

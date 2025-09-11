@@ -1,0 +1,41 @@
+.header-logo-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.4rem;
+}
+
+.logo {
+    font-family: "Times New Roman", sans-serif;
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: 1px 1px black,
+        -1px -1px var(--dark-main);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.logo:hover {
+    color: rgb(240, 238, 238);
+    text-shadow: 2px 2px black,
+        -2px -2px var(--dark-main);
+    cursor: pointer;
+}
+
+.search-header input {
+    border: 1px solid var(--text-gray);
+    border-radius: 2px;
+    width: 13rem;
+    height: 2.5rem;
+    margin-right: 1rem;
+    padding: 0.8rem;
+    transition: width 0.5s;
+}
+
+.search-header input:hover {
+    width: 24rem;
+}
+
+.search-btn {
+    height: 2.5rem;
+}

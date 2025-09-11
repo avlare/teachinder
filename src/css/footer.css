@@ -1,0 +1,13 @@
+footer {
+    margin-top: 3rem;
+}
+
+footer .header-navigation {
+    margin-bottom: 0;
+}
+
+.info {
+    margin-bottom: 3rem;
+    text-align: left;
+    color: var(--text-gray);
+}
