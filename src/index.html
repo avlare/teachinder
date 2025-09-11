@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Teachinder</title>
-    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <!-- <link rel="icon" type="image/x-icon" href="./favicon.ico"> -->
     <link rel="stylesheet" href="./css/app.css">
 
 </head>
@@ -20,7 +20,7 @@
             <div class="header-logo-search">
                 <a href="/" class="logo">Teachinder</a>
                 <form class="search-header">
-                    <input type="text" name="search" placeholder="Name, note or age to search" />
+                    <input type="search" name="search" placeholder="Name, note or age to search" />
                     <button class="basic-btn search-btn">Search</button>
                 </form>
             </div>
@@ -34,39 +34,39 @@
                     <li><a href="#about">About</a></li>
                 </ul>
             </nav>
-            <button class="basic-btn" id="add-teacher-btn">Add teacher</button>
+            <button class="basic-btn add-teacher-btn">Add teacher</button>
         </div>
 
         <hr />
 
         <main>
-            <section class="top-teachers">
+            <section class="top-teachers" id="teachers">
                 <h2>Top Teachers</h2>
                 <div class="panel-filters">
                     <div>
                         <label for="age">Age</label>
                         <select name="age" id="age"> 
-                              <option selected="selected">18-31</option> 
-                              <option>32-41</option> 
-                              <option>42-51</option> 
-                              <option>51-65</option> 
+                              <option value="18-31" selected="selected">18-31</option> 
+                              <option value="32-41">32-41</option> 
+                              <option value="42-51">42-51</option> 
+                              <option value="51-65">51-65</option> 
                         </select> 
                     </div>
                     <div>
                         <label for="region">Region</label>
                         <select name="region" id="region"> 
-                              <option selected="selected">Europe</option> 
-                              <option>Asia</option> 
-                              <option>America</option> 
-                              <option>Africa</option> 
-                            <option>Australia</option> 
+                              <option value="europe" selected="selected">Europe</option> 
+                              <option value="asia">Asia</option> 
+                              <option value="america">America</option> 
+                              <option value="africa">Africa</option> 
+                            <option value="australia">Australia</option> 
                         </select> 
                     </div>
                     <div>
                         <label for="sex">Sex</label>
                         <select name="sex" id="sex"> 
-                              <option selected="selected">Male</option> 
-                              <option>Female</option> 
+                              <option value="male" selected="selected">Male</option> 
+                              <option value="female">Female</option> 
                         </select> 
                     </div>
                     <div>
@@ -168,7 +168,7 @@
 
 
         </main>
-        <section class="statistics">
+        <section class="statistics" id="statistics">
             <h2>Statistics</h2>
             <table>
                 <tr>
@@ -253,7 +253,7 @@
             </nav>
         </section>
         <hr />
-        <section>
+        <section id="favorites">
             <h2>Favourites</h2>
             <div class="favorites">
                 <button class="arrow-btn left"></button>
@@ -317,7 +317,7 @@
         <hr />
 
         <footer>
-            <div class="info">
+            <div class="info" id="about">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et
                     dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -344,11 +344,118 @@
                         <li><a href="#about">About</a></li>
                     </ul>
                 </nav>
-                <button class="basic-btn" id="add-teacher-btn">Add teacher</button>
+                <button class="basic-btn add-teacher-btn">Add teacher</button>
             </div>
         </footer>
     </div>
+
+    <dialog id="dialog-add-teacher">
+        <div class="dialog-header">
+            <p>Add Teacher</p>
+            <button id="close-add-teacher-btn">✖</button>
+        </div>
+        <form class="form-add-teacher" method="dialog">
+            <div>
+                <label for="dialog-name-teacher">Name</label>
+                <input type="text" id="dialog-name-teacher" name="dialog-name-teacher" placeholder="Enter name"
+                    minlength="2" required />
+            </div>
+            <div>
+                <label for="dialog-speciality-teacher">Speciality</label>
+                <select name="dialog-speciality-teacher" id="dialog-speciality-teacher"> 
+                    <option value="mathematics" selected="selected">Mathematics</option>
+                    <option value="chemistry">Chemistry</option>
+                    <option value="chess">Chess</option>
+                    <option value="english">Physics</option>
+                    <option value="biology">Biology</option>
+                </select>
+            </div>
+            <div class="dialog-grid">
+                <div>
+                    <label for="dialog-country-teacher">Country</label>
+                    <select name="dialog-country-teacher" id="dialog-country-teacher"> 
+                        <option value="ukraine" selected="selected">Ukraine</option>
+                        <option value="usa">USA</option>
+                        <option value="japan">Japan</option>
+                        <option value="france">France</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="dialog-city-teacher">City</label>
+                    <input type="text" id="dialog-city-teacher" name="dialog-city-teacher" required />
+                </div>
+                <div>
+                    <label for="dialog-email-teacher">Email</label>
+                    <input type="email" id="dialog-email-teacher" name="dialog-email-teacher" required />
+                </div>
+                <div>
+                    <label for="dialog-phone-teacher">Phone</label>
+                    <input type="tel" id="dialog-phone-teacher" name="dialog-phone-teacher" />
+                </div>
+                <div>
+                    <label for="dialog-date-teacher">Date of birth</label>
+                    <input type="date" id="dialog-date-teacher" name="dialog-date-teacher" />
+                </div>
+
+            </div>
+            <div class="dialog-sex-teacher">
+                <p>Sex</p>
+                <div>
+                    <label for="dialog-male-teacher">Male</label>
+                    <input type="radio" name="dialog-sex-teacher" id="dialog-male-teacher" value="male" required />
+                    <label for="dialog-female-teacher">Female</label>
+                    <input type="radio" name="dialog-sex-teacher" id="dialog-female-teacher" value="female" required />
+                </div>
+            </div>
+            <div class="dialog-background">
+                <label for="dialog-background-color-teacher">Background color</label>
+                <div>
+                    <img src="images/wheel.png" alt="Color wheel" />
+                    <input type="color" name="dialog-background-color-teacher" id="dialog-background-color-teacher" />
+                </div>
+            </div>
+            <div>
+                <label for="dialog-notes-teacher">Notes (optional)</label>
+                <textarea type="text" id="dialog-notes-teacher" name="dialog-notes-teacher"></textarea>
+
+            </div>
+
+            <button class="basic-btn" id="add-new-teacher">Add</button>
+        </form>
+    </dialog>
+
+
+    <dialog id="dialog-teacher-info">
+        <div class="dialog-header">
+            <p>Teacher Info</p>
+            <button id="close-info-teacher-btn">✖</button>
+        </div>
+        <div class="dialog-main-info">
+        <div class="dialog-body">
+                <img src="./images/teacher.png" alt="Photo of the teacher" />
+        <div class="dialog-description">
+            <span class="dialog-star">☆</span>
+            <h2>Ihor Tkachuk</h2>
+            <h3>Chemistry</h3>
+            <p>Kyiv, Ukraine</p>
+            <p>35, Male</p>
+            <a href="mail">ihor_tkachuk@domain.com</a>
+            <p>+380964993252</p>
+        </div>
+        </div>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip
+                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                    dolore eu
+                    fugiat nulla pariatur.
+        </p>
+        <a href="/map">toggle map</a>
+        </div>
+    </dialog>
+    <script type="text/javascript" src="./js/app.js"></script>
 </body>
-<script type="text/javascript" src="./js/app.js"></script>
 
 </html>

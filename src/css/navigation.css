@@ -22,6 +22,6 @@
     color: var(--dark-hover);
 }
 
-#add-teacher-btn {
+.add-teacher-btn {
     font-size: 1.3rem;
 }

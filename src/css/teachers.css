@@ -41,6 +41,7 @@
 .teacher {
     width: 9rem;
     margin-bottom: 3rem;
+    cursor: pointer;
 }
 
 .teacher-image {
@@ -57,7 +58,6 @@
     border: 4px solid var(--dark-main);
     cursor: pointer;
 }
-
 
 .teacher-image img {
     width: 100%;

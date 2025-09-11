@@ -16,6 +16,12 @@
 
 @import url('./footer.css');
 
+@import url('./dialogs/dialog.css');
+
+@import url('./dialogs/add-teacher.css');
+
+@import url('./dialogs/teacher-info.css');
+
 :root {
   --main: #F89582;
   --dark-main: #FC564F;
