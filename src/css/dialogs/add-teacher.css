@@ -13,7 +13,11 @@
     margin-bottom: 2rem;
 }
 
-.form-add-teacher div label, .form-add-teacher div input, .form-add-teacher div select, .form-add-teacher textarea, .form-add-teacher button {
+.form-add-teacher div label, 
+.form-add-teacher div input, 
+.form-add-teacher div select, 
+.form-add-teacher textarea, 
+.form-add-teacher button {
     width: 100%;
 }
 
