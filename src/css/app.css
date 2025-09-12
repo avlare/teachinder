@@ -72,3 +72,32 @@ h2 {
   font-size: 2rem;
   font-weight: bolder;
 }
+
+@media (max-width: 950px) {
+  hr {
+    width: 20rem;
+  }
+}
+
+@media (max-width: 850px) {
+  .main-container {
+    width: 85%;
+    padding: 2.5rem 3rem;
+  }
+}
+
+@media (max-width: 500px) {
+  hr {
+    width: 10rem;
+  }
+
+  h2 {
+    margin: 1.5rem 0;
+  }
+}
+
+@media (max-width: 390px) {
+  .main-container {
+    padding: 2.5rem 1rem;
+  }
+}

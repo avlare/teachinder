@@ -69,3 +69,19 @@ td:first-child {
     color: inherit;
     pointer-events: none;
 }
+
+@media (max-width: 950px) {
+    th {
+        font-size: 1rem;
+    }
+
+    td {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 620px) {
+    .statistics div {
+        overflow: scroll
+    }
+}
