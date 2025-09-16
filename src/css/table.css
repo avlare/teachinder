@@ -1,0 +1,87 @@
+.statistics {
+    margin-bottom: 1.8rem;
+}
+
+table {
+    width: 100%;
+    color: var(--text-gray);
+}
+
+th {
+    padding: 1rem;
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--text-gray);
+    position: relative;
+}
+
+th:hover::after {
+    content: '↓';
+    position: absolute;
+    color: darkcyan;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+th:hover {
+    box-shadow: inset 0 -2px 0 var(--text-gray);
+    background-color: #f0f0f042;
+}
+
+td {
+    padding: 0.6rem;
+}
+
+tr:nth-child(odd):not(:first-child) {
+    background-color: #FAF5FB;
+}
+
+th:first-child,
+td:first-child {
+    text-align: left;
+}
+
+.table-pages ul {
+    margin: 2rem 0.4rem;
+}
+
+.table-pages li {
+    float: left;
+    margin-left: 0.7rem;
+}
+
+.table-pages li a {
+    text-decoration: none;
+}
+
+.table-pages li:not(:first-child) a {
+    cursor: pointer;
+    color: darkcyan;
+    transition: all 0.3s;
+}
+
+.table-pages li:not(:first-child) a:hover {
+    cursor: pointer;
+    color: rgb(1, 67, 67);
+}
+
+.table-pages li:first-child a {
+    cursor: default;
+    color: inherit;
+    pointer-events: none;
+}
+
+@media (max-width: 950px) {
+    th {
+        font-size: 1rem;
+    }
+
+    td {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 620px) {
+    .statistics div {
+        overflow: scroll
+    }
+}

@@ -1,0 +1,71 @@
+.header-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.navigator ul {
+    display: flex;
+    gap: 50px;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.navigator ul li a {
+    text-decoration: none;
+    color: var(--dark-main);
+    transition: color 0.3s;
+}
+
+.navigator ul li a:hover {
+    color: var(--dark-hover);
+}
+
+.add-teacher-btn {
+    font-size: 1.3rem;
+}
+
+@media (max-width: 1300px) {
+    .navigator ul {
+        gap: 25px;
+    }
+
+
+}
+
+@media (max-width: 1050px) {
+    .header-navigation {
+        display: block;
+    }
+
+    .navigator ul {
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .navigator ul {
+        font-size: 1.1rem;
+    }
+
+    .add-teacher-btn {
+        font-size: 1.1rem;
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    .navigator ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .add-teacher-btn {
+        font-size: 1.1rem;
+    }
+
+}

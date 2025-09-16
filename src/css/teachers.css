@@ -1,0 +1,162 @@
+/* filter panel before the grid with teachers */
+.panel-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.panel-filters div {
+    padding: 0 1rem;
+    margin-top: 0.5rem;
+    border-right: 1px dashed grey;
+}
+
+.panel-filters div:last-child {
+    border-right: none;
+}
+
+.panel-filters div label {
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+}
+
+/* .panel-filters div:has(input){
+    text-align: left;
+} */
+
+.panel-filters div:hover {
+    color: var(--text-gray);
+}
+
+.panel-filters div select {
+    font-size: 0.9rem;
+    padding: 0.4rem;
+    margin: 0;
+}
+
+
+/* a teacher's card + grid */
+.panel-teachers {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+.teacher {
+    width: 9rem;
+    margin-bottom: 3rem;
+    cursor: pointer;
+}
+
+.teacher-image {
+    width: 9rem;
+    height: 9rem;
+    border-radius: 150px;
+    border: 4px solid var(--main);
+    margin-bottom: 25px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.teacher-image:hover {
+    border: 4px solid var(--dark-main);
+    cursor: pointer;
+}
+
+.teacher-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.teacher-image span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: var(--main);
+    font-size: 1.45rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.teacher-image img:hover,
+.teacher-image span:hover {
+    transform: scale(1.2);
+}
+
+.teacher-image span:hover {
+    color: var(--dark-hover);
+}
+
+.teacher-name,
+.teacher-surname {
+    color: black;
+    font-size: 1.45rem;
+    text-align: center;
+    align-self: center;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.teacher-surname {
+    margin-bottom: 0.9rem;
+}
+
+.teacher-country {
+    margin-top: 0.7rem;
+    font-size: 0.8rem;
+    color: black;
+}
+
+.star::before {
+    content: '★';
+    color: rgb(235, 235, 31);
+    position: absolute;
+    font-size: 3rem;
+    transform: translateX(110%) translateY(-10%);
+    z-index: 2;
+}
+
+@media (max-width: 1300px) {
+    .panel-teachers {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 1100px) {
+    .panel-teachers {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 900px) {
+    .panel-teachers {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .panel-filters {
+        flex-direction: column;
+    }
+
+    .panel-filters div {
+        display: flex;
+        align-items: center;
+        border: none;
+        min-height: 2rem;
+
+    }
+
+    .panel-teachers {
+        grid-template-columns: 1fr;
+    }
+}

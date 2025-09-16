@@ -1,0 +1,98 @@
+.favorites {
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+
+.arrow-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    position: absolute;
+    width: 1.5rem;
+    height: 3.4rem;
+    top: 30%;
+    background-color: gray;
+    clip-path: polygon(100% 100%, 0% 50%, 100% 0%, 100% 20%, 50% 50%, 100% 80%);
+    transition: all 0.3s;
+}
+
+.arrow-btn:hover {
+    background-color: var(--text-gray);
+}
+
+.arrow-btn.left {
+    left: -50px;
+}
+
+.arrow-btn.right {
+    right: -50px;
+    transform: rotate(180deg);
+}
+
+.favourite-panel {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+@media (max-width: 1310px) {
+    .favourite-panel> :nth-last-child(1) {
+        display: none;
+    }
+}
+
+@media (max-width: 1100px) {
+    .favourite-panel> :nth-last-child(2) {
+        display: none;
+    }
+}
+
+@media (max-width: 850px) {
+    .arrow-btn.left {
+        left: -25px;
+    }
+
+    .arrow-btn.right {
+        right: -25px;
+    }
+}
+
+@media (max-width: 780px) {
+    .favourite-panel> :nth-last-child(3) {
+        display: none;
+    }
+
+    .favourite-panel {
+        margin: 2rem 0;
+    }
+
+
+    @media (max-width: 780px) {
+        .favourite-panel > :nth-last-child(3) {
+            display: none;
+        }
+
+        .favourite-panel {
+            margin: 2rem 0;
+        }
+
+    }
+}
+
+
+@media (max-width: 470px) {
+    .favourite-panel > :nth-last-child(5) {
+        display: none;
+    }
+}
+
+@media (max-width: 395px) {
+    .arrow-btn.left {
+        left: -5px;
+    }
+
+    .arrow-btn.right {
+        right: -5px;
+    }
+}
