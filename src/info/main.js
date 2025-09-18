@@ -53,20 +53,20 @@ const JSONToFile = (results, filename) =>
 let result = getFormattedUsers(randomUserMock, additionalUsers);
 JSONToFile({ result }, 'src\\info\\results\\task1');
 
-// // task 2
+// task 2
 let validUsers = validateUsersFields(result);
 JSONToFile({ validUsers }, 'src\\info\\results\\task2');
 
-// // task 3
+// task 3
 const filter = { age: { min: 61, max: 75 }, gender: "Male" };
 let filteredUsers = filterUsers(validUsers, filter);
 JSONToFile({ filteredUsers }, 'src\\info\\results\\task3');
 
-// // task 4
+// task 4
 let sortedUsers = sortUsers(validUsers, "country", "desc");
 JSONToFile({ sortedUsers }, 'src\\info\\results\\task4');
 
-// // task 5
+// task 5
 const search = "Female germany";
 let searchUsers = searchInfo(validUsers, search);
 JSONToFile({ searchUsers }, 'src\\info\\results\\task5');
