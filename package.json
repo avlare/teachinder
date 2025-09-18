@@ -1,6 +1,7 @@
 {
   "name": "lab_boilerplate",
   "description": "",
+  "type": "module",
   "main": "./src/index.js",
   "scripts": {
     "start": "node express.js",
@@ -38,5 +39,10 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "country-list-js": "^3.1.8",
+    "country-to-iso": "^1.6.1",
+    "libphonenumber-js": "^1.12.17"
   }
 }
