@@ -79,9 +79,13 @@ export function getFormattedUsers(randomUserMock, additionalUsers) {
     const mergedMap = new Map();
 
     for (const user of allUsers) {
+        // const key = user.full_name; there's no people with identical id and full_name as asking in the task. so, i used this line for testing
         const key = `${user.id} ${user.full_name}`;
         if (mergedMap.has(key)) {
             let userAlreadyInMap = mergedMap.get(key);
+            // console.log("=================");
+            // console.log(user);
+            // console.log(userAlreadyInMap);
             mergedMap.set(key, mergeUsers(userAlreadyInMap, user));
         } else {
             mergedMap.set(key, user);
