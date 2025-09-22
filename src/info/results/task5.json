@@ -1,0 +1,66 @@
+{
+  "searchUsers": [
+    {
+      "id": {
+        "name": "",
+        "value": null
+      },
+      "gender": "Female",
+      "title": "Ms",
+      "full_name": "Tessa Möllmann",
+      "city": "Hohenstein-Ernstthal",
+      "state": "Bayern",
+      "country": "Germany",
+      "postcode": 87827,
+      "coordinates": {
+        "latitude": "61.8456",
+        "longitude": "67.6500"
+      },
+      "timezone": {
+        "offset": "+4:30",
+        "description": "Kabul"
+      },
+      "email": "tessa.mollmann@example.com",
+      "b_date": "1986-05-08T09:19:12.021Z",
+      "age": 35,
+      "phone": "+493587950096",
+      "picture_large": "https://randomuser.me/api/portraits/women/8.jpg",
+      "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/women/8.jpg",
+      "favorite": false,
+      "course": "Physics",
+      "bg_color": "#ff00e1ff",
+      "note": "Note"
+    },
+    {
+      "id": {
+        "name": "",
+        "value": null
+      },
+      "gender": "Female",
+      "title": "Miss",
+      "full_name": "Adeline Weigand",
+      "city": "Fürth",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "Germany",
+      "postcode": 80819,
+      "coordinates": {
+        "latitude": "-41.5020",
+        "longitude": "-36.1579"
+      },
+      "timezone": {
+        "offset": "+1:00",
+        "description": "Brussels, Copenhagen, Madrid, Paris"
+      },
+      "email": "adeline.weigand@example.com",
+      "b_date": "1971-06-08T09:57:13.975Z",
+      "age": 50,
+      "phone": "+495961926541",
+      "picture_large": "https://randomuser.me/api/portraits/women/43.jpg",
+      "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/women/43.jpg",
+      "favorite": false,
+      "course": "Chemistry",
+      "bg_color": "#ff00e1ff",
+      "note": "Note"
+    }
+  ]
+}

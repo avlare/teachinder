@@ -1,0 +1,252 @@
+{
+  "filteredUsers": [
+    {
+      "id": {
+        "name": "FN",
+        "value": "28045612378"
+      },
+      "gender": "Male",
+      "title": "Mr",
+      "full_name": "August Bertheussen",
+      "city": "Arendal",
+      "state": "Nord-Trøndelag",
+      "country": "Norway",
+      "postcode": "8518",
+      "coordinates": {
+        "latitude": "25.1087",
+        "longitude": "-0.6986"
+      },
+      "timezone": {
+        "offset": "+11:00",
+        "description": "Magadan, Solomon Islands, New Caledonia"
+      },
+      "email": "august.bertheussen@example.com",
+      "b_date": "1956-04-28T08:50:01.255Z",
+      "age": 65,
+      "phone": "+4736513745",
+      "picture_large": "https://randomuser.me/api/portraits/men/87.jpg",
+      "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/men/87.jpg",
+      "favorite": false,
+      "course": "Medicine",
+      "bg_color": "#ff00e1ff",
+      "note": "Note"
+    },
+    {
+      "id": {
+        "name": "SSN",
+        "value": "273-52-2514"
+      },
+      "gender": "Male",
+      "title": "Mr",
+      "full_name": "Joe Mitchell",
+      "city": "Norwalk",
+      "state": "New Jersey",
+      "country": "United States",
+      "postcode": 83924,
+      "coordinates": {
+        "latitude": "45.4790",
+        "longitude": "143.8132"
+      },
+      "timezone": {
+        "offset": "+10:00",
+        "description": "Eastern Australia, Guam, Vladivostok"
+      },
+      "email": "joe.mitchell@example.com",
+      "b_date": "1948-07-07T06:09:20.491Z",
+      "age": 73,
+      "phone": "+12105144881",
+      "picture_large": "https://randomuser.me/api/portraits/men/78.jpg",
+      "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/men/78.jpg",
+      "favorite": false,
+      "course": "English",
+      "bg_color": "#ff00e1ff",
+      "note": "Note"
+    },
+    {
+      "id": {
+        "name": "CPR",
+        "value": "261150-5443"
+      },
+      "gender": "Male",
+      "title": "Mr",
+      "full_name": "Tristan Petersen",
+      "city": "Stenderup",
+      "state": "Syddanmark",
+      "country": "Denmark",
+      "postcode": 88496,
+      "coordinates": {
+        "latitude": "-77.4835",
+        "longitude": "64.8261"
+      },
+      "timezone": {
+        "offset": "-5:00",
+        "description": "Eastern Time (US & Canada), Bogota, Lima"
+      },
+      "email": "tristan.petersen@example.com",
+      "b_date": "1950-11-26T15:19:28.764Z",
+      "age": 71,
+      "phone": "+4561523239",
+      "picture_large": "https://randomuser.me/api/portraits/men/97.jpg",
+      "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/men/97.jpg",
+      "favorite": false,
+      "course": "Biology",
+      "bg_color": "#ff00e1ff",
+      "note": "Note"
+    },
+    {
+      "id": {
+        "name": "",
+        "value": null
+      },
+      "gender": "Male",
+      "title": "Mr",
+      "full_name": "Esat Köylüoğlu",
+      "city": "Giresun",
+      "state": "Konya",
+      "country": "Turkey",
+      "postcode": 50870,
+      "coordinates": {
+        "latitude": "-44.0832",
+        "longitude": "-64.5925"
+      },
+      "timezone": {
+        "offset": "+5:45",
+        "description": "Kathmandu"
+      },
+      "email": "esat.koyluoglu@example.com",
+      "b_date": "1956-01-28T20:25:36.209Z",
+      "age": 65,
+      "phone": "+904726380730",
+      "picture_large": "https://randomuser.me/api/portraits/men/57.jpg",
+      "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/men/57.jpg",
+      "favorite": false,
+      "course": "Art",
+      "bg_color": "#ff00e1ff",
+      "note": "Note"
+    },
+    {
+      "id": {
+        "name": "INSEE",
+        "value": "1NNaN65034787 26"
+      },
+      "gender": "Male",
+      "title": "Mr",
+      "full_name": "Oscar Dupont",
+      "city": "Grenoble",
+      "state": "Aveyron",
+      "country": "France",
+      "postcode": 27916,
+      "coordinates": {
+        "latitude": "32.9637",
+        "longitude": "-78.6173"
+      },
+      "timezone": {
+        "offset": "-11:00",
+        "description": "Midway Island, Samoa"
+      },
+      "email": "oscar.dupont@example.com",
+      "b_date": "1951-01-16T07:15:43.883Z",
+      "age": 70,
+      "phone": "+33339755447",
+      "picture_large": "https://randomuser.me/api/portraits/men/42.jpg",
+      "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/men/42.jpg",
+      "favorite": false,
+      "course": "Medicine",
+      "bg_color": "#ff00e1ff",
+      "note": "Note"
+    },
+    {
+      "id": {
+        "name": "AVS",
+        "value": "756.7424.4611.08"
+      },
+      "gender": "Male",
+      "title": "Monsieur",
+      "full_name": "Noa Bertrand",
+      "city": "Reiden",
+      "state": "Schwyz",
+      "country": "Switzerland",
+      "postcode": 9703,
+      "coordinates": {
+        "latitude": "-74.4969",
+        "longitude": "-152.0049"
+      },
+      "timezone": {
+        "offset": "-3:00",
+        "description": "Brazil, Buenos Aires, Georgetown"
+      },
+      "email": "noa.bertrand@example.com",
+      "b_date": "1955-10-20T18:03:04.151Z",
+      "age": 66,
+      "phone": "+41783016263",
+      "picture_large": "https://randomuser.me/api/portraits/men/4.jpg",
+      "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/men/4.jpg",
+      "favorite": false,
+      "course": "English",
+      "bg_color": "#ff00e1ff",
+      "note": "Note"
+    },
+    {
+      "id": {
+        "name": "SSN",
+        "value": "891-26-1846"
+      },
+      "gender": "Male",
+      "title": "Mr",
+      "full_name": "Eugene Kuhn",
+      "city": "St. Petersburg",
+      "state": "Florida",
+      "country": "United States",
+      "postcode": 11620,
+      "coordinates": {
+        "latitude": "41.6479",
+        "longitude": "-79.9292"
+      },
+      "timezone": {
+        "offset": "+4:00",
+        "description": "Abu Dhabi, Muscat, Baku, Tbilisi"
+      },
+      "email": "eugene.kuhn@example.com",
+      "b_date": "1957-12-04T07:34:06.971Z",
+      "age": 64,
+      "phone": "+19033802376",
+      "picture_large": "https://randomuser.me/api/portraits/men/48.jpg",
+      "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/men/48.jpg",
+      "favorite": false,
+      "course": "Statistics",
+      "bg_color": "#ff00e1ff",
+      "note": "Note"
+    },
+    {
+      "id": {
+        "name": "INSEE",
+        "value": "1NNaN84707229 61"
+      },
+      "gender": "Male",
+      "title": "Mr",
+      "full_name": "Matteo Lecomte",
+      "city": "Courbevoie",
+      "state": "Charente",
+      "country": "France",
+      "postcode": 89507,
+      "coordinates": {
+        "latitude": "89.1833",
+        "longitude": "-4.8202"
+      },
+      "timezone": {
+        "offset": "+9:30",
+        "description": "Adelaide, Darwin"
+      },
+      "email": "matteo.lecomte@example.com",
+      "b_date": "1948-05-30T04:28:42.593Z",
+      "age": 73,
+      "phone": "+33233675840",
+      "picture_large": "https://randomuser.me/api/portraits/men/57.jpg",
+      "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/men/57.jpg",
+      "favorite": false,
+      "course": "Physics",
+      "bg_color": "#ff00e1ff",
+      "note": "Note"
+    }
+  ]
+}
