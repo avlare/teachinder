@@ -3,12 +3,14 @@ import { cleanFilters } from "./filterUsers.js";
 import { validUsers } from "./app.js";
 
 const dialogAddTeacher = document.getElementById("dialog-add-teacher");
-const openAddTeacherBtn = document.getElementById("open-add-teacher-btn");
+const openAddTeacherBtn = document.querySelectorAll(".open-add-teacher");
 const closeAddTeacherBtn = document.getElementById("close-add-teacher-btn");
 const formAddTeacher = document.querySelector(".form-add-teacher");
 
-openAddTeacherBtn.addEventListener("click", () => {
+openAddTeacherBtn.forEach(btn => {
+  btn.addEventListener("click", () => {
     dialogAddTeacher.showModal();
+  });
 });
 
 

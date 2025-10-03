@@ -9,7 +9,7 @@ export function sortUsers(users, sortKey, sortCondition) {
     }
 
     if (typeof currVal === "string" && typeof nextVal === "string") {
-      const compare = currVal.localeCompare(nextVal, "en", { sensitivity: "base" });
+      const compare = currVal.localeCompare(nextVal);
       return sortCondition === "asc" ? compare : -compare;
     }
 
