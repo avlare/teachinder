@@ -69,21 +69,15 @@ td:first-child {
     text-decoration: none;
 }
 
-.table-pages li:not(:first-child) a {
+.table-pages li a {
     cursor: pointer;
     color: darkcyan;
     transition: all 0.3s;
 }
 
-.table-pages li:not(:first-child) a:hover {
+.table-pages li a:hover {
     cursor: pointer;
     color: rgb(1, 67, 67);
-}
-
-.table-pages li:first-child a {
-    cursor: default;
-    color: inherit;
-    pointer-events: none;
 }
 
 @media (max-width: 950px) {

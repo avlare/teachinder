@@ -1,5 +1,5 @@
-import { filterUsers } from "./info/filter.js";
-import { validUsers } from "./app.js";
+import { filterUsers } from "../info/filter.js";
+import { validUsers } from "../users.js";
 import { renderTeachers, teachers } from "./addTeacher.js";
 
 let currentFilters = {
@@ -41,6 +41,12 @@ function applyFilters() {
 
     const filtered = filterUsers(validUsers, currentFilters);
     renderTeachers(filtered);
+
+    const loadMoreBtn = document.getElementById("load-more");
+        if (loadMoreBtn) {
+        const hasFilters = currentFilters.age || currentFilters.country || currentFilters.gender || currentFilters.photo || currentFilters.favorite;
+        loadMoreBtn.style.display = hasFilters ? "none" : "";
+    }
 }
 
 [ageSelect, regionSelect, sexSelect, photoCheck, favCheck].forEach(el => {

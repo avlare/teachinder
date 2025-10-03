@@ -1,0 +1,19 @@
+{
+  "teachers": [
+    {
+      "id": "3ba38629-fb53-4b80-abaa-71f5b9dbbd2b",
+      "full_name": "Lily Lyalya",
+      "course": "Chemistry",
+      "country": "Usa",
+      "city": "New York",
+      "email": "lily@gmail.com",
+      "phone": "96685471",
+      "age": 24,
+      "gender": "Female",
+      "note": "sdfsdfsdfsdfsds",
+      "picture_large": null,
+      "favorite": false,
+      "bg_color": "#fff70a"
+    }
+  ]
+}

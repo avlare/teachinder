@@ -10,7 +10,7 @@
 
     <title>Teachinder</title>
     <!-- <link rel="icon" type="image/x-icon" href="./favicon.ico"> -->
-<!--     
+    <!--     
     <link rel="stylesheet" href="./css/app.css"> 
     <script type="text/javascript" src="../build/app.js"></script> -->
 
@@ -36,7 +36,7 @@
                     <li><a href="#about">About</a></li>
                 </ul>
             </nav>
-            <button id="open-add-teacher-btn" class="basic-btn add-teacher-btn">Add teacher</button>
+            <button class="basic-btn add-teacher-btn open-add-teacher">Add teacher</button>
         </div>
 
         <hr />
@@ -45,36 +45,36 @@
             <section class="top-teachers" id="teachers">
                 <h2>Top Teachers</h2>
                 <div class="panel-filters">
-<div>
-  <label for="age">Age</label>
-  <select name="age" id="age">
-    <option value="" selected>-</option>
-    <option value="18-31">18-31</option>
-    <option value="32-41">32-41</option>
-    <option value="42-51">42-51</option>
-    <option value="51-61">51-61</option>
-    <option value="62-81">62-81</option>
-  </select>
-</div>
-<div>
-  <label for="region">Region</label>
-  <select name="region" id="region">
-    <option value="" selected>-</option>
-    <option value="europe">Europe</option>
-    <option value="asia">Asia</option>
-    <option value="america">America</option>
-    <option value="africa">Africa</option>
-    <option value="australia">Australia</option>
-  </select>
-</div>
-<div>
-  <label for="sex">Sex</label>
-  <select name="sex" id="sex">
-    <option value="" selected>-</option>
-    <option value="male">Male</option>
-    <option value="female">Female</option>
-  </select>
-</div>
+                    <div>
+                        <label for="age">Age</label>
+                        <select name="age" id="age">
+                            <option value="" selected>-</option>
+                            <option value="18-31">18-31</option>
+                            <option value="32-41">32-41</option>
+                            <option value="42-51">42-51</option>
+                            <option value="51-61">51-61</option>
+                            <option value="62-81">62-81</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="region">Region</label>
+                        <select name="region" id="region">
+                            <option value="" selected>-</option>
+                            <option value="europe">Europe</option>
+                            <option value="asia">Asia</option>
+                            <option value="america">America</option>
+                            <option value="africa">Africa</option>
+                            <option value="australia">Australia</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="sex">Sex</label>
+                        <select name="sex" id="sex">
+                            <option value="" selected>-</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
                     <div>
                         <input type="checkbox" id="photo-check" name="photo" />
                         <label for="photo-check">Only with photo</label>
@@ -89,7 +89,7 @@
                         <div class="teacher-image">
                             <img src="./images/teacher.png" alt="Photo of the teacher" />
                         </div> -->
-                        <!-- <div class="teacher-info">
+                    <!-- <div class="teacher-info">
                             <p class="teacher-name">Ihor</p>
                             <p class="teacher-surname">Tkachuk</p>
                             <p class="teacher-discipline">Chemistry</p>
@@ -173,7 +173,8 @@
                             <p class="teacher-country">Poland</p>
                         </div>
                     </div> -->
-
+                </div>
+                <button id="load-more" class="basic-btn add-teacher-btn" style="margin-bottom: 50px;">Load more</button>
             </section>
             <hr />
 
@@ -183,16 +184,16 @@
             <h2>Statistics</h2>
             <div>
                 <table>
-  <thead>
-    <tr>
-      <th data-key="full_name">Name</th>
-      <th data-key="course">Specialty</th>
-      <th data-key="age">Age</th>
-      <th data-key="gender">Gender</th>
-      <th data-key="country">Nationality</th>
-    </tr>
-  </thead>
-  <tbody id="table-stats"></tbody>
+                    <thead>
+                        <tr>
+                            <th data-key="full_name">Name</th>
+                            <th data-key="course">Specialty</th>
+                            <th data-key="age">Age</th>
+                            <th data-key="gender">Gender</th>
+                            <th data-key="country">Nationality</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-stats"></tbody>
                     <!-- <tr>
                         <td>Daisy Alexander</td>
                         <td>Chemistry</td>
@@ -273,8 +274,8 @@
             <h2>Favourites</h2>
             <div class="favorites">
                 <button class="arrow-btn left"></button>
-               <div class="favourite-panel">
-                <!--      <div class="teacher">
+                <div class="favourite-panel">
+                    <!--      <div class="teacher">
                         <div class="teacher-image">
                             <img src="./images/teacher.png" alt="Photo of the teacher" />
                         </div>
@@ -365,7 +366,8 @@
                         <li><a href="#about">About</a></li>
                     </ul>
                 </nav>
-                <button id="open-add-teacher-btn" class="basic-btn add-teacher-btn">Add teacher</button>
+                <button id="open-add-teacher-btn" class="basic-btn add-teacher-btn open-add-teacher">Add
+                    teacher</button>
             </div>
         </footer>
     </div>
@@ -396,7 +398,7 @@
                     <label for="dialog-country-teacher">Country</label>
                     <select name="dialog-country-teacher" id="dialog-country-teacher">
                         <option value="Ukraine" selected="selected">Ukraine</option>
-                        <option value="Usa">USA</option>
+                        <option value="United States">United States</option>
                         <option value="Japan">Japan</option>
                         <option value="France">France</option>
                     </select>

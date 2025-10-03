@@ -1,16 +1,17 @@
-import { teachers, renderTeachers } from "./addTeacher.js";
 import { cleanFilters } from "./filterUsers.js";
-import { validUsers } from "./app.js";
+import { addTeacherOnServer } from "../app.js";
+import { validUsers } from "../users.js";
 
 const dialogAddTeacher = document.getElementById("dialog-add-teacher");
-const openAddTeacherBtn = document.getElementById("open-add-teacher-btn");
+const openAddTeacherBtn = document.querySelectorAll(".open-add-teacher");
 const closeAddTeacherBtn = document.getElementById("close-add-teacher-btn");
 const formAddTeacher = document.querySelector(".form-add-teacher");
 
-openAddTeacherBtn.addEventListener("click", () => {
+openAddTeacherBtn.forEach(btn => {
+  btn.addEventListener("click", () => {
     dialogAddTeacher.showModal();
+  });
 });
-
 
 closeAddTeacherBtn.addEventListener("click", () => {
     dialogAddTeacher.close();
@@ -62,6 +63,7 @@ formAddTeacher.addEventListener("submit", (e) => {
     };
 
     validUsers.push(newTeacher);
+    addTeacherOnServer(newTeacher);
     cleanFilters();
     formAddTeacher.reset();
     dialogAddTeacher.close();
