@@ -14,14 +14,6 @@ th {
     position: relative;
 }
 
-th:hover::after {
-    content: '↓';
-    position: absolute;
-    color: darkcyan;
-    margin-left: 10px;
-    cursor: pointer;
-}
-
 th:hover {
     box-shadow: inset 0 -2px 0 var(--text-gray);
     background-color: #f0f0f042;
@@ -29,6 +21,30 @@ th:hover {
 
 td {
     padding: 0.6rem;
+}
+
+th::after {
+    content: "";
+}
+
+th:hover::after {
+    content: "↓";
+    position: absolute;
+    margin-left: 10px;
+    color: darkcyan;
+}
+
+th.asc::after {
+    content: "↑" !important;
+    position: absolute;
+    margin-left: 10px;
+    color: darkcyan;
+}
+th.desc::after {
+    content: "↓" !important;
+    position: absolute;
+    margin-left: 10px;
+    color: darkcyan;
 }
 
 tr:nth-child(odd):not(:first-child) {
