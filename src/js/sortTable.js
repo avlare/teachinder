@@ -27,11 +27,10 @@ export function initSort(users) {
     const ths = document.querySelectorAll("thead th");
 
     function updateThClasses() {
-        ths.forEach(h => h.classList.remove("asc", "desc"));
-        if (currentSort.key) {
-            const activeTh = document.querySelector(`th[data-key="${currentSort.key}"]`);
-            if (activeTh) activeTh.classList.add(currentSort.order);
-        }
+        ths.forEach(th => {
+            th.classList.remove("asc", "desc");
+            if (th.dataset.key === currentSort.key) th.classList.add(currentSort.order);
+        });
     }
 
     ths.forEach(th => {
@@ -39,16 +38,16 @@ export function initSort(users) {
         th.addEventListener("click", () => {
             const sortKey = th.dataset.key;
             if (!sortKey) return;
+
             if (currentSort.key === sortKey) {
-                if (currentSort.order === "desc") {
-                    currentSort.order = "asc";
-                } else if (currentSort.order === "asc") {
-                    currentSort = { key: null, order: null };
+                currentSort.order = currentSort.order === "desc" ? "asc"
+                                  : currentSort.order === "asc" ? null
+                                  : "desc";
+                if (!currentSort.order) {
+                    currentSort.key = null;
                     updateThClasses();
                     renderTable(originalUsers);
                     return;
-                } else {
-                    currentSort.order = "desc";
                 }
             } else {
                 currentSort.key = sortKey;
@@ -56,9 +55,7 @@ export function initSort(users) {
             }
 
             updateThClasses();
-
-            const sorted = sortUsers([...originalUsers], currentSort.key, currentSort.order);
-            renderTable(sorted);
+            renderTable(sortUsers([...originalUsers], currentSort.key, currentSort.order));
         });
     });
 }
