@@ -1,32 +1,29 @@
-// import testModules from './test-module.js';
-/** ******** Your code here! *********** */
+import "../css/app.css";
+import { renderTeachers } from "./ui/addTeacher.js";
+import { searchTeachers } from "./ui/searchTeachers.js";
+import "./ui/filterUsers.js";
+import "./ui/formAddTeacher.js";
+import { validUsers, loadTeachers } from "./users.js";
 
-// console.log(testModules.hello);
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadTeachers();
+  renderTeachers(validUsers);
+  searchTeachers(validUsers);
 
-const btnAddTeacher = document.querySelectorAll('.add-teacher-btn');
-const dialogAddTeacher = document.getElementById('dialog-add-teacher');
-const closeDialogAddTeacher = document.getElementById('close-add-teacher-btn');
+  const loadMoreBtn = document.getElementById("load-more");
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener("click", () => loadTeachers(10));
+  }
+});
 
-const btnInfoTeacher = document.querySelectorAll('.teacher');
-const dialogInfoTeacher = document.getElementById('dialog-teacher-info');
-const closeInfoTeacher = document.getElementById('close-info-teacher-btn');
-
-btnAddTeacher.forEach(btn => {
-    btn.addEventListener('click', () => {
-        dialogAddTeacher.showModal();
+export async function addTeacherOnServer(teacher) {
+  try {
+    const response = await fetch("http://localhost:3000/teachers", {
+      method: "POST",
+      body: JSON.stringify(teacher)
     });
-});
-
-closeDialogAddTeacher.addEventListener('click', () => {
-    dialogAddTeacher.close();
-});
-
-btnInfoTeacher.forEach(btn => {
-    btn.addEventListener('click', () => {
-        dialogInfoTeacher.showModal();
-    });
-});
-
-closeInfoTeacher.addEventListener('click', () => {
-    dialogInfoTeacher.close();
-});
+      console.log("added");
+  } catch (error) {
+    console.error({error});
+  }
+}

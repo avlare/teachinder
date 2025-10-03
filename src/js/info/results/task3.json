@@ -27,7 +27,7 @@
       "picture_large": "https://randomuser.me/api/portraits/men/87.jpg",
       "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/men/87.jpg",
       "favorite": false,
-      "course": "Medicine",
+      "course": "Law",
       "bg_color": "#ff00e1ff",
       "note": "Note"
     },
@@ -58,7 +58,7 @@
       "picture_large": "https://randomuser.me/api/portraits/men/78.jpg",
       "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/men/78.jpg",
       "favorite": false,
-      "course": "English",
+      "course": "Biology",
       "bg_color": "#ff00e1ff",
       "note": "Note"
     },
@@ -89,7 +89,7 @@
       "picture_large": "https://randomuser.me/api/portraits/men/97.jpg",
       "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/men/97.jpg",
       "favorite": false,
-      "course": "Biology",
+      "course": "Chemistry",
       "bg_color": "#ff00e1ff",
       "note": "Note"
     },
@@ -120,7 +120,7 @@
       "picture_large": "https://randomuser.me/api/portraits/men/57.jpg",
       "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/men/57.jpg",
       "favorite": false,
-      "course": "Art",
+      "course": "Statistics",
       "bg_color": "#ff00e1ff",
       "note": "Note"
     },
@@ -182,7 +182,7 @@
       "picture_large": "https://randomuser.me/api/portraits/men/4.jpg",
       "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/men/4.jpg",
       "favorite": false,
-      "course": "English",
+      "course": "Biology",
       "bg_color": "#ff00e1ff",
       "note": "Note"
     },
@@ -213,7 +213,7 @@
       "picture_large": "https://randomuser.me/api/portraits/men/48.jpg",
       "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/men/48.jpg",
       "favorite": false,
-      "course": "Statistics",
+      "course": "Medicine",
       "bg_color": "#ff00e1ff",
       "note": "Note"
     },
@@ -244,7 +244,7 @@
       "picture_large": "https://randomuser.me/api/portraits/men/57.jpg",
       "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/men/57.jpg",
       "favorite": false,
-      "course": "Physics",
+      "course": "Law",
       "bg_color": "#ff00e1ff",
       "note": "Note"
     }

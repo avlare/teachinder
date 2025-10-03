@@ -27,9 +27,19 @@ function normalize(value) {
   return value === undefined || value === null || value === "" ? null : value;
 }
 
+function normalizeId(id, login) {
+  if (!id) return login ?? crypto.randomUUID();
+  if (typeof id === "string") return id;
+  if (typeof id === "object" && id.name && id.value) {
+    return `${id.name}${id.value}`;
+  }
+  return crypto.randomUUID();
+}
+
+
 export function formatUser(user) {
   return {
-    id: normalize(user.id ?? user.login?.uuid ?? crypto.randomUUID()),
+    id: normalize(normalizeId(user.id ?? user.login?.uuid)),
     gender: normalize(capitalizeWord(user.gender)),
     title: normalize(user.title ?? user.name?.title),
     full_name: normalize(

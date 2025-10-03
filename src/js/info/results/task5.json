@@ -27,7 +27,7 @@
       "picture_large": "https://randomuser.me/api/portraits/women/8.jpg",
       "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/women/8.jpg",
       "favorite": false,
-      "course": "Physics",
+      "course": "Chess",
       "bg_color": "#ff00e1ff",
       "note": "Note"
     },
@@ -58,7 +58,7 @@
       "picture_large": "https://randomuser.me/api/portraits/women/43.jpg",
       "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/women/43.jpg",
       "favorite": false,
-      "course": "Chemistry",
+      "course": "Mathematics",
       "bg_color": "#ff00e1ff",
       "note": "Note"
     }
