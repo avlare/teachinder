@@ -1,32 +1,15 @@
-// import testModules from './test-module.js';
-/** ******** Your code here! *********** */
+import "../css/app.css";
+import { randomUserMock, additionalUsers } from "./info/FE4U-Lab2-mock.js"
+import { getFormattedUsers } from "./info/format.js"
+import { validateUsersFields } from "./info/validate.js"
+import { renderTeachers, teachers } from "./addTeacher.js";
+import "./filterUsers.js"
+import { initSort, renderTable } from "./sortTable.js";
+import { searchTeachers } from "./searchTeachers.js";
+import "./formAddTeacher.js";
 
-// console.log(testModules.hello);
+let result = getFormattedUsers(randomUserMock, additionalUsers);
+export let validUsers = validateUsersFields(result);
 
-const btnAddTeacher = document.querySelectorAll('.add-teacher-btn');
-const dialogAddTeacher = document.getElementById('dialog-add-teacher');
-const closeDialogAddTeacher = document.getElementById('close-add-teacher-btn');
-
-const btnInfoTeacher = document.querySelectorAll('.teacher');
-const dialogInfoTeacher = document.getElementById('dialog-teacher-info');
-const closeInfoTeacher = document.getElementById('close-info-teacher-btn');
-
-btnAddTeacher.forEach(btn => {
-    btn.addEventListener('click', () => {
-        dialogAddTeacher.showModal();
-    });
-});
-
-closeDialogAddTeacher.addEventListener('click', () => {
-    dialogAddTeacher.close();
-});
-
-btnInfoTeacher.forEach(btn => {
-    btn.addEventListener('click', () => {
-        dialogInfoTeacher.showModal();
-    });
-});
-
-closeInfoTeacher.addEventListener('click', () => {
-    dialogInfoTeacher.close();
-});
+renderTeachers(validUsers);
+searchTeachers(validUsers);

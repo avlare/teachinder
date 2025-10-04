@@ -105,6 +105,22 @@ const CONFIG = {
           },
         ],
       },
+            {
+        test: /\.(?:js|mjs|cjs)$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ['@babel/preset-env'],
+            ],
+            plugins: [
+              '@babel/plugin-proposal-optional-chaining',
+              '@babel/plugin-proposal-nullish-coalescing-operator',
+            ],
+          },
+        },
+        exclude: /node_modules\/(?!countries-list)/,
+      },
     ],
   },
   devServer: {
