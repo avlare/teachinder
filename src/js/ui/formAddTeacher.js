@@ -1,6 +1,6 @@
-import { teachers, renderTeachers } from "./addTeacher.js";
 import { cleanFilters } from "./filterUsers.js";
-import { validUsers } from "./app.js";
+import { addTeacherOnServer } from "../app.js";
+import { validUsers } from "../users.js";
 
 const dialogAddTeacher = document.getElementById("dialog-add-teacher");
 const openAddTeacherBtn = document.querySelectorAll(".open-add-teacher");
@@ -12,7 +12,6 @@ openAddTeacherBtn.forEach(btn => {
     dialogAddTeacher.showModal();
   });
 });
-
 
 closeAddTeacherBtn.addEventListener("click", () => {
     dialogAddTeacher.close();
@@ -64,6 +63,7 @@ formAddTeacher.addEventListener("submit", (e) => {
     };
 
     validUsers.push(newTeacher);
+    addTeacherOnServer(newTeacher);
     cleanFilters();
     formAddTeacher.reset();
     dialogAddTeacher.close();

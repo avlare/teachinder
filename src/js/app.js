@@ -1,15 +1,29 @@
 import "../css/app.css";
-import { randomUserMock, additionalUsers } from "./info/FE4U-Lab2-mock.js"
-import { getFormattedUsers } from "./info/format.js"
-import { validateUsersFields } from "./info/validate.js"
-import { renderTeachers, teachers } from "./addTeacher.js";
-import "./filterUsers.js"
-import { initSort, renderTable } from "./sortTable.js";
-import { searchTeachers } from "./searchTeachers.js";
-import "./formAddTeacher.js";
+import { renderTeachers } from "./ui/addTeacher.js";
+import { searchTeachers } from "./ui/searchTeachers.js";
+import "./ui/filterUsers.js";
+import "./ui/formAddTeacher.js";
+import { validUsers, loadTeachers } from "./users.js";
 
-let result = getFormattedUsers(randomUserMock, additionalUsers);
-export let validUsers = validateUsersFields(result);
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadTeachers();
+  renderTeachers(validUsers);
+  searchTeachers(validUsers);
 
-renderTeachers(validUsers);
-searchTeachers(validUsers);
+  const loadMoreBtn = document.getElementById("load-more");
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener("click", () => loadTeachers(10));
+  }
+});
+
+export async function addTeacherOnServer(teacher) {
+  try {
+    const response = await fetch("http://localhost:3000/teachers", {
+      method: "POST",
+      body: JSON.stringify(teacher)
+    });
+      console.log("added");
+  } catch (error) {
+    console.error({error});
+  }
+}
