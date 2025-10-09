@@ -1,4 +1,4 @@
-import { sortUsers } from "./info/sort.js";
+import { sortUsers } from "../info/sort.js";
 import { initPagination, updateData } from "./pagination.js";
 
 let currentSort = { key: null, order: null };
