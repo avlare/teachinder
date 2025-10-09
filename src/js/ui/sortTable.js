@@ -1,4 +1,4 @@
-import { sortUsers } from "../info/sort.js";
+import { sortUsers } from "./info/sort.js";
 import { initPagination, updateData } from "./pagination.js";
 
 let currentSort = { key: null, order: null };
@@ -22,7 +22,6 @@ export function renderTable(data) {
 
 export function initSort(users) {
     originalUsers = Array.isArray(users) ? [...users] : [];
-
     initPagination(originalUsers, renderTable);
 
     const ths = document.querySelectorAll("thead th");
