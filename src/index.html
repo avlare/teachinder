@@ -7,6 +7,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 
+    <link href="https://cdn.webdatarocks.com/latest/webdatarocks.min.css" rel="stylesheet" />
+    <script src="https://cdn.webdatarocks.com/latest/webdatarocks.toolbar.min.js"></script>
+    <script src="https://cdn.webdatarocks.com/latest/webdatarocks.js"></script> -->
 
     <title>Teachinder</title>
     <!-- <link rel="icon" type="image/x-icon" href="./favicon.ico"> -->
@@ -183,7 +187,16 @@
         <section class="statistics" id="statistics">
             <h2>Statistics</h2>
             <div>
-                <table>
+                <div class="chart-container">
+                    <div class="tabs">
+                        <button data-category="course" class="tab active">Course</button>
+                        <button data-category="age" class="tab">Age</button>
+                        <button data-category="gender" class="tab">Gender</button>
+                        <button data-category="country" class="tab">Country</button>
+                    </div>
+
+                    <canvas id="chartCanvas"></canvas>
+                    <!-- <table>
                     <thead>
                         <tr>
                             <th data-key="full_name">Name</th>
@@ -193,7 +206,7 @@
                             <th data-key="country">Nationality</th>
                         </tr>
                     </thead>
-                    <tbody id="table-stats"></tbody>
+                    <tbody id="table-stats"></tbody> -->
                     <!-- <tr>
                         <td>Daisy Alexander</td>
                         <td>Chemistry</td>
@@ -257,7 +270,11 @@
                         <td>Female</td>
                         <td>Ireland</td>
                     </tr> -->
-                </table>
+                    <!-- </table> -->
+                </div>
+                <h2>Summary report</h2>
+                <div id="pivotContainer"></div>
+
             </div>
             <!-- <nav class="table-pages">
                 <ul>
@@ -460,7 +477,7 @@
                     <h2>Ihor Tkachuk</h2>
                     <h3>Chemistry</h3>
                     <p>Kyiv, Ukraine</p>
-                    <p>35, Male</p>
+                    <p>35 | Male | 120 days left</p>
                     <a href="mail">ihor_tkachuk@domain.com</a>
                     <p>+380964993252</p>
                 </div>
@@ -474,7 +491,6 @@
                 dolore eu
                 fugiat nulla pariatur.
             </p>
-            <a href="/map">toggle map</a>
         </div>
     </dialog>
 </body>

@@ -1,44 +1,35 @@
-import { isValidPhoneNumber } from 'libphonenumber-js';
+import _ from "lodash";
+import { isValidPhoneNumber } from "libphonenumber-js";
 
 function checkStringCapitalLetter(word) {
-    return (typeof word == "string" && word[0] == word[0].toUpperCase());
+  return _.isString(word) && word.charAt(0) === _.upperFirst(word).charAt(0);
 }
 
 function checkNumber(num) {
-    return typeof num == "number";
+  return _.isNumber(num) && !_.isNaN(num);
 }
 
-function checkEmail (email) {
-    const chechkString = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return chechkString.test(email);
+function checkEmail(email) {
+  return _.isString(email) && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 function checkPhoneNumber(phone) {
-    if(typeof phone === "string")
-        return isValidPhoneNumber(phone);
-    return false;
+  return _.isString(phone) && isValidPhoneNumber(phone);
 }
 
 function validateUser(user) {
-    // console.log("User name   " + user.full_name);
-    // console.log("пender:" + checkStringCapitalLetter(user.gender));
-    // console.log("note:" + checkStringCapitalLetter(user.note));
-    // console.log("country:" + checkStringCapitalLetter(user.country));
-    // console.log("age:" + checkNumber(user.age));
-    // console.log("phone:" + checkPhoneNumber(user.phone));
-    // console.log("email:" + checkEmail(user.email));
-    return (
-    checkStringCapitalLetter(user.full_name) &&
-    checkStringCapitalLetter(user.gender) &&
-    checkStringCapitalLetter(user.note) &&
-    checkStringCapitalLetter(user.state) &&
-    checkStringCapitalLetter(user.country) &&
-    checkNumber(user.age) &&
-    checkPhoneNumber(user.phone) &&
-    checkEmail(user.email)
-    )
-};
+  return (
+    checkStringCapitalLetter(_.get(user, "full_name")) &&
+    checkStringCapitalLetter(_.get(user, "gender")) &&
+    checkStringCapitalLetter(_.get(user, "note")) &&
+    checkStringCapitalLetter(_.get(user, "state")) &&
+    checkStringCapitalLetter(_.get(user, "country")) &&
+    checkNumber(_.get(user, "age")) &&
+    checkPhoneNumber(_.get(user, "phone")) &&
+    checkEmail(_.get(user, "email"))
+  );
+}
 
 export function validateUsersFields(users) {
-    return users.filter(user => validateUser(user))
+  return _.filter(users, validateUser);
 }

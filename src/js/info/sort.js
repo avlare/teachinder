@@ -1,22 +1,17 @@
+import _ from "lodash";
+
 export function sortUsers(users, sortKey, sortCondition) {
-  return users.sort((curr, next) => {
-    let currVal = curr[sortKey];
-    let nextVal = next[sortKey];
+  const sorted = _.orderBy(
+    users,
+    [(user) => {
+      let value = _.get(user, sortKey);
+      if (sortKey === "b_date" && !_.isNil(value)) {
+        value = new Date(value);
+      }
+      return _.isString(value) ? _.toLower(value) : value;
+    }],
+    [sortCondition === "asc" ? "asc" : "desc"]
+  );
 
-    if (sortKey === "b_date") {
-      currVal = new Date(currVal);
-      nextVal = new Date(nextVal);
-    }
-
-    if (typeof currVal === "string" && typeof nextVal === "string") {
-      const compare = currVal.localeCompare(nextVal);
-      return sortCondition === "asc" ? compare : -compare;
-    }
-
-    if (sortCondition === "asc") {
-      return currVal > nextVal ? 1 : currVal < nextVal ? -1 : 0;
-    } else {
-      return currVal < nextVal ? 1 : currVal > nextVal ? -1 : 0;
-    }
-  });
+  return sorted;
 }
