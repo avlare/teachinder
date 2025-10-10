@@ -46,17 +46,11 @@ const CONFIG = {
     new OptimizeCssAssetsPlugin({
       cssProcessorOptions: { discardComments: { removeAll: true } },
     }),
-    new CopyWebpackPlugin([
-      {
-        from: "src/images/",
-        to: "images/",
-      },
-      {
-        from: "src/*.txt",
-        to: "./[name].[ext]",
-        toType: "template",
-      },
-    ]),
+new CopyWebpackPlugin([
+  { from: "src/images/", to: "images/" },
+  { from: "src/*.txt", to: "./[name].[ext]", toType: "template" },
+  { from: "node_modules/leaflet/dist/images", to: "images/leaflet" }
+]),
     new ImageminPlugin({
       disable: devMode,
       test: /\.(jpe?g|png|gif|svg)$/i,
@@ -66,63 +60,91 @@ const CONFIG = {
       svgo: {},
     }),
   ],
-  module: {
-    rules: [
-      {
-        test: /\.(css|scss)$/i,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            // options: {
-            //   hmr: devMode,
-            // },
-          },
-          {
-            loader: "css-loader",
-            options: {
-              sourceMap: true,
-              importLoaders: 2,
-            },
-          },
-          {
-            loader: "postcss-loader",
-            options: {
-              sourceMap: true,
-            },
-          },
-          {
-            loader: "sass-loader",
-            options: { sourceMap: true },
-          },
-        ],
-      },
-      {
-        test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {},
-          },
-        ],
-      },
-            {
-        test: /\.(?:js|mjs|cjs)$/,
-        use: {
-          loader: 'babel-loader',
+module: {
+  rules: [
+    {
+      test: /\.css$/i,
+      include: /node_modules/,
+      use: [MiniCssExtractPlugin.loader, "css-loader"],
+    },
+    {
+      test: /\.css$/i,
+      exclude: /node_modules/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        {
+          loader: "css-loader",
           options: {
-            presets: [
-              ['@babel/preset-env'],
-            ],
-            plugins: [
-              '@babel/plugin-proposal-optional-chaining',
-              '@babel/plugin-proposal-nullish-coalescing-operator',
-            ],
+            sourceMap: true,
+            importLoaders: 1,
           },
         },
-        exclude: /node_modules\/(?!countries-list)/,
+        {
+          loader: "postcss-loader",
+          options: { sourceMap: true },
+        },
+      ],
+    },
+    {
+      test: /\.(scss|sass)$/i,
+      exclude: /node_modules/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        {
+          loader: "css-loader",
+          options: { sourceMap: true, importLoaders: 2 },
+        },
+        {
+          loader: "postcss-loader",
+          options: { sourceMap: true },
+        },
+        {
+          loader: "sass-loader",
+          options: { sourceMap: true },
+        },
+      ],
+    },
+    {
+      test: /\.(png|jpe?g|gif)$/i,
+      use: [
+        {
+          loader: "file-loader",
+          options: {
+            name: "[path][name].[ext]",
+          },
+        },
+      ],
+    },
+    {
+      test: /\.(woff(2)?|ttf|eot|svg)$/i,
+      use: [
+        {
+          loader: "file-loader",
+          options: {
+            name: "fonts/[name].[ext]",
+            outputPath: "fonts/",
+            esModule: false,
+          },
+        },
+      ],
+    },
+
+    {
+      test: /\.(?:js|mjs|cjs)$/i,
+      exclude: /node_modules\/(?!countries-list)/,
+      use: {
+        loader: "babel-loader",
+        options: {
+          presets: ["@babel/preset-env"],
+          plugins: [
+            "@babel/plugin-proposal-optional-chaining",
+            "@babel/plugin-proposal-nullish-coalescing-operator",
+          ],
+        },
       },
-    ],
-  },
+    },
+  ],
+},
   devServer: {
     contentBase: path.join(__dirname, "src"),
     compress: true,
@@ -137,12 +159,18 @@ if (!devMode) {
   CONFIG.output.publicPath = "./";
   CONFIG.output.filename = "js/app.js";
   CONFIG.plugins.push(new MinifyPlugin());
-  CONFIG.module.rules.push({
-    test: [/\.js$/],
-    exclude: [/node_modules/],
-    loader: "babel-loader",
-    options: { presets: ["env"] },
-  });
+CONFIG.module.rules.push({
+  test: /\.js$/,
+  exclude: /node_modules/,
+  loader: "babel-loader",
+  options: {
+    presets: ["@babel/preset-env"],
+    plugins: [
+      "@babel/plugin-proposal-optional-chaining",
+      "@babel/plugin-proposal-nullish-coalescing-operator",
+    ],
+  },
+});
 }
 
 module.exports = CONFIG;

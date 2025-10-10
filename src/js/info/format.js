@@ -1,82 +1,78 @@
+import _ from "lodash";
 import { countryToAlpha2 } from "country-to-iso";
-import { parsePhoneNumberWithError } from 'libphonenumber-js';
+import { parsePhoneNumberWithError } from "libphonenumber-js";
 
 const courses = [
-    "Mathematics",
-    "Physics",
-    "English",
-    "Computer Science",
-    "Dancing",
-    "Chess",
-    "Biology",
-    "Chemistry",
-    "Law",
-    "Art",
-    "Medicine",
-    "Statistics",
+  "Mathematics",
+  "Physics",
+  "English",
+  "Computer Science",
+  "Dancing",
+  "Chess",
+  "Biology",
+  "Chemistry",
+  "Law",
+  "Art",
+  "Medicine",
+  "Statistics",
 ];
 
 function capitalizeWord(word) {
-    if (typeof word === "string") {
-        return word[0].toUpperCase() + word.slice(1);
-    }
-    return null;
+  return _.isString(word) ? _.upperFirst(word) : null;
 }
 
 function normalize(value) {
-  return value === undefined || value === null || value === "" ? null : value;
+  return _.isNil(value) || value === "" ? null : value;
 }
 
 function normalizeId(id, login) {
   if (!id) return login ?? crypto.randomUUID();
-  if (typeof id === "string") return id;
-  if (typeof id === "object" && id.name && id.value) {
-    return `${id.name}${id.value}`;
-  }
+  if (_.isString(id)) return id;
+  if (_.isObject(id) && id.name && id.value) return `${id.name}${id.value}`;
   return crypto.randomUUID();
 }
 
-
 export function formatUser(user) {
   return {
-    id: normalize(normalizeId(user.id ?? user.login?.uuid)),
-    gender: normalize(capitalizeWord(user.gender)),
-    title: normalize(user.title ?? user.name?.title),
+    id: normalize(normalizeId(_.get(user, "id") ?? _.get(user, "login.uuid"))),
+    gender: normalize(capitalizeWord(_.get(user, "gender"))),
+    title: normalize(_.get(user, "title") ?? _.get(user, "name.title")),
     full_name: normalize(
-      user.full_name ?? `${user.name?.first ?? ""} ${user.name?.last ?? ""}`.trim()
+      _.get(user, "full_name") ??
+        `${_.get(user, "name.first", "")} ${_.get(user, "name.last", "")}`.trim()
     ),
-    city: normalize(user.city ?? user.location?.city),
-    state: normalize(user.state ?? user.location?.state),
-    country: normalize(user.country ?? user.location?.country),
-    postcode: normalize(user.postcode ?? user.location?.postcode),
+    city: normalize(_.get(user, "city") ?? _.get(user, "location.city")),
+    state: normalize(_.get(user, "state") ?? _.get(user, "location.state")),
+    country: normalize(_.get(user, "country") ?? _.get(user, "location.country")),
+    postcode: normalize(_.get(user, "postcode") ?? _.get(user, "location.postcode")),
     coordinates: {
-      latitude: normalize(user.coordinates?.latitude ?? user.location?.coordinates?.latitude),
-      longitude: normalize(user.coordinates?.longitude ?? user.location?.coordinates?.longitude),
+      latitude: normalize(_.get(user, "coordinates.latitude") ?? _.get(user, "location.coordinates.latitude")),
+      longitude: normalize(_.get(user, "coordinates.longitude") ?? _.get(user, "location.coordinates.longitude")),
     },
     timezone: {
-      offset: normalize(user.timezone?.offset ?? user.location?.timezone?.offset),
-      description: normalize(user.timezone?.description ?? user.location?.timezone?.description),
+      offset: normalize(_.get(user, "timezone.offset") ?? _.get(user, "location.timezone.offset")),
+      description: normalize(_.get(user, "timezone.description") ?? _.get(user, "location.timezone.description")),
     },
-    email: normalize(user.email),
-    b_date: normalize(user.b_day ?? user.dob?.date),
-    age: normalize(user.dob?.age),
-    phone: normalize(setPhoneWithCountryCode(user.phone, user.country ?? user.location?.country)),
-    picture_large: normalize(user.picture_large ?? user.picture?.large),
-    picture_thumbnail: normalize(user.picture_thumbnail ?? user.picture?.thumbnail),
-    favorite: normalize(user.favorite ?? false),
-    course: normalize(user.course ?? courses[Math.floor(Math.random() * courses.length)]),
-    bg_color: normalize(user.bg_color ?? "#ff00e1ff"),
-    note: normalize(user.note ?? "Note"), // there is only 4 people with notes and none of them starts with a capital letter (task2), so added "Note"
+    email: normalize(_.get(user, "email")),
+    b_date: normalize(_.get(user, "b_day") ?? _.get(user, "b_date") ?? _.get(user, "dob.date")),
+    age: normalize(_.get(user, "age") ?? _.get(user, "dob.age")),
+    phone: normalize(setPhoneWithCountryCode(_.get(user, "phone"), _.get(user, "country") ?? _.get(user, "location.country"))),
+    picture_large: normalize(_.get(user, "picture_large") ?? _.get(user, "picture.large")),
+    picture_thumbnail: normalize(_.get(user, "picture_thumbnail") ?? _.get(user, "picture.thumbnail")),
+    favorite: normalize(_.get(user, "favorite") ?? false),
+    course: normalize(_.get(user, "course") ?? _.sample(courses)),
+    bg_color: normalize(_.get(user, "bg_color") ?? "#F89582"),
+    note: normalize(_.get(user, "note") ?? "Note"),
   };
 }
 
 function setPhoneWithCountryCode(phone, country) {
-  if (typeof phone === "string" && typeof country === "string") {
+  if (_.isString(phone) && _.isString(country)) {
     try {
       const isoCountry = countryToAlpha2(country);
       const formattedPhone = parsePhoneNumberWithError(phone, isoCountry);
       return formattedPhone.number;
-    } catch (e) {
+    } catch {
       return null;
     }
   }
@@ -84,41 +80,33 @@ function setPhoneWithCountryCode(phone, country) {
 }
 
 export function getFormattedUsers(randomUserMock, additionalUsers) {
-    const allUsers = [...randomUserMock, ...additionalUsers].map(formatUser);
+  const allUsers = _.map([...randomUserMock, ...additionalUsers], formatUser);
+  const mergedMap = new Map();
 
-    const mergedMap = new Map();
-
-    for (const user of allUsers) {
-        // const key = user.full_name; there's no people with identical id and full_name as asking in the task. so, i used this line for testing
-        const key = `${user.id} ${user.full_name}`;
-        if (mergedMap.has(key)) {
-            let userAlreadyInMap = mergedMap.get(key);
-            // console.log("=================");
-            // console.log(user);
-            // console.log(userAlreadyInMap);
-            mergedMap.set(key, mergeUsers(userAlreadyInMap, user));
-        } else {
-            mergedMap.set(key, user);
-        }
+  _.forEach(allUsers, (user) => {
+    const key = `${user.id} ${user.full_name}`;
+    if (mergedMap.has(key)) {
+      const existing = mergedMap.get(key);
+      mergedMap.set(key, mergeUsers(existing, user));
+    } else {
+      mergedMap.set(key, user);
     }
+  });
 
-    return Array.from(mergedMap.values());
+  return Array.from(mergedMap.values());
 }
 
 function mergeUsers(oldUser, newUser) {
-    const merged = { ...oldUser };
-    for (const key in newUser) {
-        if (
-            merged[key] === undefined || // just in case but all undefined values should be preprocessed as null
-            merged[key] === null ||
-            merged[key] === "" ||
-            (typeof merged[key] === "object" &&
-                Object.values(merged[key]).every(value => value === null || value === "" || value === undefined))
-        ) {
-            merged[key] = newUser[key];
-        }
+  const merged = _.clone(oldUser);
+  _.forOwn(newUser, (value, key) => {
+    const current = merged[key];
+    if (
+      _.isNil(current) ||
+      current === "" ||
+      (_.isObject(current) && _.every(_.values(current), (v) => _.isNil(v) || v === ""))
+    ) {
+      merged[key] = value;
     }
-    return merged;
+  });
+  return merged;
 }
-
-

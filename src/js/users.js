@@ -1,6 +1,7 @@
 import { getFormattedUsers } from "./info/format.js";
 import { validateUsersFields } from "./info/validate.js";
 import { renderTeachers } from "./ui/addTeacher.js";
+import { updateWdr } from "./ui/sortTable.js";
 
 const url = "https://randomuser.me/api/";
 
@@ -36,5 +37,6 @@ export async function loadTeachers(count = 50) {
 
   validUsers = validUsers.concat(validatedTeachers.slice(0, count));
   renderTeachers(validUsers);
+  if(count == 10) updateWdr(validUsers);
   return validUsers;
 }
